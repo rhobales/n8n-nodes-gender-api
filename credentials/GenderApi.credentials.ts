@@ -12,15 +12,8 @@ export class GenderApi implements ICredentialType {
 
     properties: INodeProperties[] = [
         {
-			displayName: 'API v1 base URL',
-			name: 'apiV1BaseUrl',
-			type: 'string',
-			default: 'https://gender-api.com/',
-			placeholder: 'https://gender-api.com/',
-		},
-        {
-			displayName: 'API v2 base URL',
-			name: 'apiV2BaseUrl',
+			displayName: 'API base URL',
+			name: 'apiBaseUrl',
 			type: 'string',
 			default: 'https://gender-api.com/v2/',
 			placeholder: 'https://gender-api.com/v2/',

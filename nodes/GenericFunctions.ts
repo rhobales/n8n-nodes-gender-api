@@ -11,7 +11,7 @@ export async function genderApiRequest(
 ): Promise<any> {
 
     const credentials = await this.getCredentials('genderApiCredentials');
-    const apiBaseUrl = credentials.apiV2BaseUrl as string;
+    const apiBaseUrl = credentials.apiBaseUrl as string;
     const apiKey = credentials.apiKey as string;
 
     let options: IRequestOptions = {
@@ -34,7 +34,7 @@ export async function genderApiRequest(
     }
 
     let responseData: IDataObject | undefined;
-    
+
     try {
         responseData = await this.helpers.request(options);
     } catch (error) {
