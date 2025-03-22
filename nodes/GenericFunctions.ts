@@ -34,9 +34,10 @@ export async function genderApiRequest(
     }
 
     let responseData: IDataObject | undefined;
-
+    
     try {
         responseData = await this.helpers.request(options);
+        console.log(responseData)
     } catch (error) {
         throw new NodeApiError(this.getNode(), error);
     }
