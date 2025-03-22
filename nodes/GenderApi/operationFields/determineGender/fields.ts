@@ -1,0 +1,116 @@
+import { INodeProperties } from "n8n-workflow";
+import { countryCodes } from "../../utils/countryCodes";
+import { browserLocales } from "../../utils/browserLocales";
+
+export const determineGenderFields: INodeProperties[] = [
+    {
+        displayName: 'Query by...',
+        name: 'queryBy',
+        type: 'options',
+        options: [
+            {
+                name: 'First Name',
+                value: 'oFirstname',
+            },
+            {
+                name: 'Full Name',
+                value: 'oFullname',
+            },
+            {
+                name: 'E-Mail Address',
+                value: 'oEmail'
+            }
+        ],
+        default: 'oFirstname',
+        description: 'Select the criterion to query by',
+        displayOptions: {
+            show: {
+                resource: ['determineGender'],
+                operation: ['query']
+            }
+        },
+    },
+    // Query by firstname
+    {
+        displayName: 'First Names',
+        name: 'firstnames',
+        type: 'fixedCollection',
+        default: [],
+        placeholder: 'Add First Name',
+        description: 'Add multiple first names with additional fields.',
+        typeOptions: {
+            multipleValues: true,
+        },
+        displayOptions: {
+            show: {
+                resource: ['determineGender'],
+                operation: ['query'],
+                queryBy: ['oFirstname']
+            },
+        },
+        options: [
+            {
+                name: 'firstNameEntries',
+                displayName: 'First Name Entries',
+                values: [
+                    {
+                        displayName: 'First Name',
+                        name: 'firstname',
+                        type: 'string',
+                        required: true,
+                        default: '',
+                        placeholder: 'Max',
+                        description: 'The first name of the person whose gender is to be determined.',
+                    },
+                    {
+                        displayName: 'Additional Fields',
+                        name: 'additionalFields',
+                        type: 'collection',
+                        placeholder: 'Add Field',
+                        default: {},
+                        options: [
+                            {
+                                displayName: 'Country Code',
+                                name: 'countryCode',
+                                type: 'options',
+                                required: false,
+                                default: '',
+                                options: [
+                                    ...countryCodes
+                                ],
+                                description: 'ISO 3166 ALPHA-2 country code.',
+                            },
+                            {
+                                displayName: 'Locale',
+                                name: 'browserLocale',
+                                type: 'options',
+                                required: false,
+                                default: '',
+                                options: [
+                                    ...browserLocales
+                                ],
+                                description: 'Browser locale.',
+                            },
+                            {
+                                displayName: 'IP Address',
+                                name: 'ip',
+                                type: 'string',
+                                required: false,
+                                default: '',
+                                description: 'Valid IPv4 or IPv6 address.',
+                            },
+                            {
+                                displayName: 'Internal ID',
+                                name: 'id',
+                                type: 'string',
+                                required: false,
+                                default: '',
+                                description: 'Unique identifier for this request.',
+                            },
+                        ],
+                    },
+                ],
+            },
+        ],
+    },
+];

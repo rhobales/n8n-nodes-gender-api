@@ -9,6 +9,8 @@ import {
 import { endpointHandler } from './endpoints/handler';
 import { accountOperations } from './operationFields/account/operations';
 import { accountFields } from './operationFields/account/fields';
+import { determineGenderOperations } from './operationFields/determineGender/operations';
+import { determineGenderFields } from './operationFields/determineGender/fields';
 
 export class GenderApi implements INodeType {
     description: INodeTypeDescription = {
@@ -49,7 +51,9 @@ export class GenderApi implements INodeType {
                 default: 'determineGender',
             },
             ...accountOperations,
-            ...accountFields
+            ...accountFields,
+            ...determineGenderOperations,
+            ...determineGenderFields
         ]
     };
 
