@@ -30,5 +30,7 @@ You can also specify additional parameters such as country or language to improv
 
 ## Repository
 
-Find the full code and more information on GitHub:  
-👉 [n8n-nodes-gender-api](https://github.com/rhobales/n8n-nodes-gender-api)
+Find the full code and more information on:  
+
+👉 [GitHub - n8n-nodes-gender-api](https://github.com/rhobales/n8n-nodes-gender-api)  
+👉 [NPM - n8n-nodes-gender-api](https://www.npmjs.com/package/n8n-nodes-gender-api)

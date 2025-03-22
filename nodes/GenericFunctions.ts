@@ -37,7 +37,7 @@ export async function genderApiRequest(
     
     try {
         responseData = await this.helpers.request(options);
-        console.log(responseData)
+
     } catch (error) {
         throw new NodeApiError(this.getNode(), error);
     }
