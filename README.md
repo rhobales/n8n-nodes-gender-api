@@ -18,4 +18,4 @@ This node allows you to determine the gender of a person based on various inputs
 
 ## License
 
-[MIT](https://github.com/rhobales/n8n-nodes-gender-api/blob/main/LICENSE)
+[MIT](https://github.com/rhobales/n8n-nodes-gender-api/blob/master/LICENSE.md)
