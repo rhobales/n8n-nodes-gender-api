@@ -1,0 +1,21 @@
+{
+	"node": "n8n-nodes-gender-api",
+	"nodeVersion": "1.0",
+	"codexVersion": "1.0",
+	"categories": [
+		"Productivity",
+		"Data Enrichment"
+	],
+	"resources": {
+		"credentialDocumentation": [
+			{
+				"url": "https://gender-api.com/de/api-docs/v2"
+			}
+		],
+		"primaryDocumentation": [
+			{
+				"url": "https://gender-api.com/de/api-docs/v2"
+			}
+		]
+	}
+}

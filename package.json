@@ -1,0 +1,59 @@
+{
+    "name": "n8n-nodes-gender-api",
+    "version": "1.0.0",
+    "description": "Gender API Node for n8n",
+    "keywords": [
+        "n8n-community-node-package"
+    ],
+    "license": "MIT",
+    "homepage": "",
+    "author": {
+        "name": "Nico Bombek"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/rhobales/n8n-nodes-gender-api.git"
+    },
+    "engines": {
+        "node": ">=18.10",
+        "pnpm": ">=9.1"
+    },
+    "packageManager": "pnpm@9.1.4",
+    "main": "index.js",
+    "scripts": {
+        "preinstall": "npx only-allow pnpm",
+        "build": "tsc && gulp build:icons",
+        "dev": "tsc --watch",
+        "format": "prettier nodes credentials --write",
+        "lint": "eslint nodes credentials package.json",
+        "lintfix": "eslint nodes credentials package.json --fix",
+        "prepublishOnly": "pnpm build"
+    },
+    "files": [
+        "dist"
+    ],
+    "n8n": {
+        "n8nNodesApiVersion": 1,
+        "credentials": [
+            "dist/credentials/GenderApi.credentials.js"
+        ],
+        "nodes": [
+            "dist/nodes/GenderApi/GenderApi.node.js"
+        ]
+    },
+    "devDependencies": {
+        "@typescript-eslint/parser": "^8.27.0",
+        "eslint": "^9.22.0",
+        "eslint-plugin-n8n-nodes-base": "^1.16.3",
+        "gulp": "^5.0.0",
+        "n8n-workflow": "^1.82.0",
+        "prettier": "^3.5.3",
+        "typescript": "^5.8.2"
+    },
+    "peerDependencies": {
+        "n8n-workflow": "*"
+    },
+    "dependencies": {
+        "sqlite3": "^5.1.7"
+    }
+}
