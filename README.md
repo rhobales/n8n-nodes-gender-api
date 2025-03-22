@@ -18,9 +18,9 @@ This node supports the following Gender API endpoints:
 
 - **Account Statistics:** Retrieve usage statistics for your API account.
 - **Get Gender:** Determine a person's gender based on:
-  - First name (`firstname`)
-  - Full name (`fullname`)
-  - Email address (`email`)
+  - First name
+  - Full name
+  - Email address
 
 You can also specify additional parameters such as country or language to improve accuracy.
 
@@ -30,5 +30,5 @@ You can also specify additional parameters such as country or language to improv
 
 ## Repository
 
-Find the full code and more information on GitHub:
+Find the full code and more information on GitHub:  
 👉 [n8n-nodes-gender-api](https://github.com/rhobales/n8n-nodes-gender-api)
