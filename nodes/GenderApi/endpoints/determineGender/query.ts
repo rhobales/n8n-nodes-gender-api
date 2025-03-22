@@ -46,6 +46,26 @@ export async function handleGenderQuery(this: IExecuteFunctions, index: number, 
                     id: additionalFields.id || undefined,
                 };
             });
+        } else if (queryBy === 'oEmail') {
+            const emails = this.getNodeParameter('emails', index) as IDataObject;
+            const emailEntries = emails?.emailEntries as IDataObject[];
+
+            if (!emailEntries || emailEntries.length === 0) {
+                throw new Error('At least one email must be provided.');
+            }
+
+            payload = emailEntries.map(entry => {
+                const email = entry.email as string;
+                const additionalFields = entry.additionalFields as IDataObject || {};
+
+                return {
+                    email: email,
+                    country: additionalFields.countryCode || undefined,
+                    locale: additionalFields.browserLocale || undefined,
+                    ip: additionalFields.ip || undefined,
+                    id: additionalFields.id || undefined,
+                };
+            });
         }
 
         return await genderApiRequest.call(this, 'POST', 'gender', payload);
