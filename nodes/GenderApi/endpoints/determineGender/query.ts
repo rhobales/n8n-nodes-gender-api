@@ -26,6 +26,26 @@ export async function handleGenderQuery(this: IExecuteFunctions, index: number, 
                     id: additionalFields.id || undefined,
                 };
             });
+        } else if (queryBy === 'oFullname') {
+            const fullnames = this.getNodeParameter('fullnames', index) as IDataObject;
+            const fullNameEntries = fullnames?.fullNameEntries as IDataObject[];
+
+            if (!fullNameEntries || fullNameEntries.length === 0) {
+                throw new Error('At least one full name must be provided.');
+            }
+
+            payload = fullNameEntries.map(entry => {
+                const fullname = entry.fullname as string;
+                const additionalFields = entry.additionalFields as IDataObject || {};
+
+                return {
+                    full_name: fullname,
+                    country: additionalFields.countryCode || undefined,
+                    locale: additionalFields.browserLocale || undefined,
+                    ip: additionalFields.ip || undefined,
+                    id: additionalFields.id || undefined,
+                };
+            });
         }
 
         return await genderApiRequest.call(this, 'POST', 'gender', payload);

@@ -113,4 +113,87 @@ export const determineGenderFields: INodeProperties[] = [
             },
         ],
     },
+    //Query by fullname
+    {
+        displayName: 'Full Names',
+        name: 'fullnames',
+        type: 'fixedCollection',
+        default: [],
+        placeholder: 'Add Full Name',
+        description: 'Add multiple full names with additional fields.',
+        typeOptions: {
+            multipleValues: true,
+        },
+        displayOptions: {
+            show: {
+                resource: ['determineGender'],
+                operation: ['query'],
+                queryBy: ['oFullname']
+            },
+        },
+        options: [
+            {
+                name: 'fullNameEntries',
+                displayName: 'Full Name Entries',
+                values: [
+                    {
+                        displayName: 'Full Name',
+                        name: 'fullname',
+                        type: 'string',
+                        required: true,
+                        default: '',
+                        placeholder: 'Max',
+                        description: 'The full name of the person whose gender is to be determined.',
+                    },
+                    {
+                        displayName: 'Additional Fields',
+                        name: 'additionalFields',
+                        type: 'collection',
+                        placeholder: 'Add Field',
+                        default: {},
+                        options: [
+                            {
+                                displayName: 'Country Code',
+                                name: 'countryCode',
+                                type: 'options',
+                                required: false,
+                                default: '',
+                                options: [
+                                    ...countryCodes
+                                ],
+                                description: 'ISO 3166 ALPHA-2 country code.',
+                            },
+                            {
+                                displayName: 'Locale',
+                                name: 'browserLocale',
+                                type: 'options',
+                                required: false,
+                                default: '',
+                                options: [
+                                    ...browserLocales
+                                ],
+                                description: 'Browser locale.',
+                            },
+                            {
+                                displayName: 'IP Address',
+                                name: 'ip',
+                                type: 'string',
+                                required: false,
+                                default: '',
+                                description: 'Valid IPv4 or IPv6 address.',
+                            },
+                            {
+                                displayName: 'Internal ID',
+                                name: 'id',
+                                type: 'string',
+                                required: false,
+                                default: '',
+                                description: 'Unique identifier for this request.',
+                            },
+                        ],
+                    },
+                ],
+            },
+        ],
+    },
 ];
