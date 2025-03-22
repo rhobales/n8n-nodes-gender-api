@@ -59,7 +59,7 @@ export const determineGenderFields: INodeProperties[] = [
                         type: 'string',
                         required: true,
                         default: '',
-                        placeholder: 'Max',
+                        placeholder: 'John',
                         description: 'The first name of the person whose gender is to be determined.',
                     },
                     {
@@ -142,7 +142,7 @@ export const determineGenderFields: INodeProperties[] = [
                         type: 'string',
                         required: true,
                         default: '',
-                        placeholder: 'Max',
+                        placeholder: 'John Doe',
                         description: 'The full name of the person whose gender is to be determined.',
                     },
                     {
@@ -225,7 +225,7 @@ export const determineGenderFields: INodeProperties[] = [
                         type: 'string',
                         required: true,
                         default: '',
-                        placeholder: 'max.mustermann@example.com',
+                        placeholder: 'john.doe@example.com',
                         description: 'The E-Mail of the person whose gender is to be determined.',
                     },
                     {
